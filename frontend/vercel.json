@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "slotswapper-frontend",
+  "name": "slot-swapper-frontend",
   "builds": [
     {
       "src": "package.json",
@@ -31,11 +31,16 @@
       "dest": "/manifest.json"
     },
     {
+      "src": "/robots.txt",
+      "dest": "/robots.txt"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ],
-  "env": {
-    "REACT_APP_API_URL": "@react_app_api_url"
-  }
+  "buildCommand": "npm run build",
+  "devCommand": "npm start",
+  "installCommand": "npm install",
+  "framework": "create-react-app"
 }
