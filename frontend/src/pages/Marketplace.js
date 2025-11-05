@@ -11,10 +11,6 @@ const Marketplace = () => {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const { apiCall } = useAuth();
 
-  useEffect(() => {
-    loadData();
-  }, []);
-
   const loadData = async () => {
     try {
       // Load swappable events from others
@@ -35,6 +31,11 @@ const Marketplace = () => {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleRequestSwap = (theirSlot) => {
     setSelectedSlot(theirSlot);

@@ -8,10 +8,6 @@ const Requests = () => {
   const [success, setSuccess] = useState('');
   const { apiCall } = useAuth();
 
-  useEffect(() => {
-    loadRequests();
-  }, []);
-
   const loadRequests = async () => {
     try {
       const response = await apiCall('/swaps/my-requests');
@@ -26,6 +22,11 @@ const Requests = () => {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    loadRequests();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleResponse = async (requestId, action) => {
     try {

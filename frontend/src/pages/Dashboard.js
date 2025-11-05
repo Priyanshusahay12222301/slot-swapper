@@ -13,10 +13,6 @@ const Dashboard = () => {
   });
   const { apiCall } = useAuth();
 
-  useEffect(() => {
-    loadEvents();
-  }, []);
-
   const loadEvents = async () => {
     try {
       const response = await apiCall('/events/me');
@@ -31,6 +27,11 @@ const Dashboard = () => {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    loadEvents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleCreateEvent = async (e) => {
     e.preventDefault();
